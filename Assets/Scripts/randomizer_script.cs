@@ -1,31 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 // Developed by: Eliot Pearson Jr
 // February 11, 2025
 
 public class randomizer_script : MonoBehaviour
 {
-    
-    public Sprite[] images;         // Array to store the food icons
-    public Image displayImage;      // The base image displayed before randomization
+    [System.Serializable]
+    // each food item will have an icon and a name
+    public struct FoodItem
+    {
+        public Sprite image;
+        public string name;
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public FoodItem[] foodItems;    // Array to store the food icons and corresponding names
+    public Image displayImage;      // Reference to the UI Image
+    public TMP_Text name;           // Reference to the text component for the name
+
     void Start()
     {
-        // no images present in inspector
-        if (images.Length == 0 || displayImage == null)
+        if (foodItems.Length == 0 || displayImage == null || name == null)
         {
-            Debug.LogError("Please assign images and the display image in the Inspector.");
+            Debug.LogError("Please assign food items, the display image, and the name text in the Inspector.");
         }
     }
 
-    // will randomly select from the array of image icons upon each button press
-    public void ShowRandomImage()
+    public void ShowRandomFood()
     {
-        if (images.Length > 0)
+        if (foodItems.Length > 0)
         {
-            int randomIndex = Random.Range(0, images.Length);
-            displayImage.sprite = images[randomIndex];
+            int randomIndex = Random.Range(0, foodItems.Length);
+            displayImage.sprite = foodItems[randomIndex].image;
+            name.text = foodItems[randomIndex].name;
         }
     }
+    
 }
