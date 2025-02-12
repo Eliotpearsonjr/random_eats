@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class randomizer_script : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    
     public Sprite[] images;         // Array to store the food icons
     public Image displayImage;      // The base image displayed before randomization
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // no images present in inspector
