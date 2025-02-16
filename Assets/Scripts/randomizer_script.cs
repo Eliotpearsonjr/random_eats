@@ -20,6 +20,7 @@ public class randomizer_script : MonoBehaviour
 
     void Start()
     {
+        //name.color = Color.black; // set text color to black
         if (foodItems.Length == 0 || displayImage == null || name == null)
         {
             Debug.LogError("Please assign food items, the display image, and the name text in the Inspector.");
@@ -33,6 +34,7 @@ public class randomizer_script : MonoBehaviour
             int randomIndex = Random.Range(0, foodItems.Length);
             displayImage.sprite = foodItems[randomIndex].image;
             name.text = foodItems[randomIndex].name;
+            
         }
     }
     
