@@ -17,6 +17,7 @@ public class randomizer_script : MonoBehaviour
     public FoodItem[] foodItems;    // Array to store the food icons and corresponding names
     public Image displayImage;      // Reference to the UI Image
     public TMP_Text name;           // Reference to the text component for the name
+    public ParticleSystem starBurstEffect;  // will show stars when button is pressed
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class randomizer_script : MonoBehaviour
             displayImage.sprite = foodItems[randomIndex].image;
             name.text = foodItems[randomIndex].name;
             
+            starBurstEffect.Play();
         }
     }
     
